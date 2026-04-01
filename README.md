@@ -19,3 +19,32 @@ Funcionalidades:
 - Publicar mascotas 
 - Solicitar adopción
 - Listar solicitudes
+
+Objetivo: 
+El objetivo de este proyecto es desarrollar un backend utilizando Django que permita gestionar el proceso de adopción de mascotas. 
+Se busca implentar una API que facilite la creación de usuarios, la publicación de mascotas en adopción y la gestión de solicitudes por parte de otros usuarios. 
+
+Requisitos Previos: 
+Para poder ejecutar este proyecto es necesario contar con: 
+- Python instalado 
+- Git instalado  
+
+Instalación: 
+1. Clonar el repositorio: 
+git clone <URL_DEL_REPOSITORIO>
+cd <NOMBRE_DEL_REPOSITORIO>
+2. Crear entorno virtual: 
+python -m venv venv 
+3. Activar entorno virtual: 
+venv\Scripts\Activate.ps1
+4. Instalar dependencias: 
+pip install -r requirements.txt
+5. Aplicar migraciones: 
+python manage.py migrate 
+
+Ejecutar el proyecto: 
+Para iniciar el servidor de desarrollo ejecutar: 
+python manage.py runserver
+Acceso: 
+- http://127.0.0.1:8000/
+- http://127.0.0.1:8000/admin/
