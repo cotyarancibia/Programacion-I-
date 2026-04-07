@@ -1,5 +1,5 @@
 # Programacion-I-
-Sistema de Adopción de Mascotas 
+Sistema de Adopción de mascotas 
 
 Este proyecto consiste en el desarrollo de una API para la gestión de adopción de mascotas. 
 Los usuarios pueden publicar mascotas en adopción y otros usuarios pueden solicitar adoptarlas. 
