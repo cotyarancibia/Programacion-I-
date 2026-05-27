@@ -1,11 +1,11 @@
 # Programacion-I-
-Sistema de Adopción de Mascotas 
+Sistema de Adopción de mascotas 
 
 Este proyecto consiste en el desarrollo de una API para la gestión de adopción de mascotas. 
 Los usuarios pueden publicar mascotas en adopción y otros usuarios pueden solicitar adoptarlas. 
 
 Entidades Principales:  
-- User | Usuario del sistema. Herda de `AbstractUser` y almacena información básica del usuario. 
+- User | Usuario del sistema. Hereda de `AbstractUser` y almacena información básica del usuario. 
 - Mascota | Representa las mascotas publicadas para adopción. 
 - Solicitud | Representa las solicitudes realizadas para adoptar una mascota. 
 
@@ -22,7 +22,7 @@ Funcionalidades:
 
 Objetivo: 
 El objetivo de este proyecto es desarrollar un backend utilizando Django que permita gestionar el proceso de adopción de mascotas. 
-Se busca implentar una API que facilite:
+Se busca implementar una API que facilite:
 - la creación de usuarios, 
 - la publicación de mascotas en adopción,
 - la gestión de solicitudes por parte de otros usuarios. 
@@ -60,12 +60,10 @@ python manage.py migrate
 python manage.py runserver 
 
 Accesos: 
-API: 
-- http://127.0.0.1:8000/api/
-Panel de administración: 
-- http://127.0.0.1:8000/admin/
-Documentación Swagger: 
-http://127.0.0.1:8000/api/docs/ 
+API: http://127.0.0.1:8000/api/
+Panel de administración: http://127.0.0.1:8000/admin/
+Documentación Swagger: http://127.0.0.1:8000/api/docs/ 
+
 
 
 
