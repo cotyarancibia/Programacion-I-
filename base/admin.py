@@ -1,11 +1,15 @@
 from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
 from .models import User, Mascota, Solicitud
 
 
 @admin.register(User)
-class UserAdmin(admin.ModelAdmin):
+class UserAdmin(DjangoUserAdmin):
     list_display = ('id', 'username', 'email', 'telefono')
     search_fields = ('username', 'email')
+    fieldsets = DjangoUserAdmin.fieldsets + (
+        ('Informacion adicional', {'fields': ('telefono', 'direccion')}),
+    )
 
 
 @admin.register(Mascota)

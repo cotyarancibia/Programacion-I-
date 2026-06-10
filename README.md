@@ -29,7 +29,7 @@ Se busca implementar una API que facilite:
 
 Modelo de Datos:
 Diagrama entidad-relación: 
-![Diagrama de Base de Datos](docs/diagrama.png)
+![Diagrama de Base de Datos](docs/Diagrama.png)
 
 Tecnologías utilizadas: 
 - Python
@@ -63,7 +63,3 @@ Accesos:
 API: http://127.0.0.1:8000/api/
 Panel de administración: http://127.0.0.1:8000/admin/
 Documentación Swagger: http://127.0.0.1:8000/api/docs/ 
-
-
-
-

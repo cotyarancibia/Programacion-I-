@@ -1,12 +1,24 @@
 # Python
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
 
 # Virtual environment
 venv/
+.venv/
 
 # Database
 db.sqlite3
+
+# Environment variables
+.env
+.env.*
+!.env.example
+local_settings.py
+
+# OpenCode local data
+.opencode/
 
 # VS Code
 .vscode/
