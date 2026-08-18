@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'drf_spectacular',
     'base',
     'users',
+    'rest_framework_simplejwt.token_blacklist',
 ]
 
 MIDDLEWARE = [
