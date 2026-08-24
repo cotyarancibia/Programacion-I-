@@ -12,17 +12,9 @@ class IsAdmin(BasePermission):
 class IsAdminOrVendedor(BasePermission):
     def has_permission(self, request, view):
         if request.method in SAFE_METHODS:
-            return True
+            return request.user.is_authenticated
 
         return (
             request.user.is_authenticated
             and request.user.role in ['ADMIN', 'VENDEDOR']
-        )
-
-
-class IsCliente(BasePermission):
-    def has_permission(self, request, view):
-        return (
-            request.user.is_authenticated
-            and request.user.role == 'CLIENTE'
         )
