@@ -4,10 +4,10 @@ Sistema de Adopción de mascotas
 Este proyecto consiste en el desarrollo de una API para la gestión de adopción de mascotas. 
 Los usuarios pueden publicar mascotas en adopción y otros usuarios pueden solicitar adoptarlas. 
 
-El sistema está compuesto por las siguientes entidades: 
-- Usuario
-- Mascota
-- Solicitud
+Entidades Principales:  
+- User | Usuario del sistema. Hereda de `AbstractUser` y almacena información básica del usuario. 
+- Mascota | Representa las mascotas publicadas para adopción. 
+- Solicitud | Representa las solicitudes realizadas para adoptar una mascota. 
 
 Relaciones: 
 - Un usuario puede publicar múltiples mascotas (1:N)
@@ -22,12 +22,27 @@ Funcionalidades:
 
 Objetivo: 
 El objetivo de este proyecto es desarrollar un backend utilizando Django que permita gestionar el proceso de adopción de mascotas. 
-Se busca implentar una API que facilite la creación de usuarios, la publicación de mascotas en adopción y la gestión de solicitudes por parte de otros usuarios. 
+Se busca implementar una API que facilite:
+- la creación de usuarios, 
+- la publicación de mascotas en adopción,
+- la gestión de solicitudes por parte de otros usuarios. 
+
+Modelo de Datos:
+Diagrama entidad-relación: 
+![Diagrama de Base de Datos](docs/Diagrama.png)
+
+Tecnologías utilizadas: 
+- Python
+- Django 
+- Django Rest Framework
+- PostgreSQL
+- Swagger
 
 Requisitos Previos: 
-Para poder ejecutar este proyecto es necesario contar con: 
-- Python instalado 
-- Git instalado  
+Para ejecutar este proyecto necesitás tener instalado: 
+- Python 
+- Git 
+- PostgreSQL 
 
 Instalación: 
 1. Clonar el repositorio: 
@@ -41,10 +56,10 @@ venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 5. Aplicar migraciones: 
 python manage.py migrate 
+6. Ejecutar el servidor: 
+python manage.py runserver 
 
-Ejecutar el proyecto: 
-Para iniciar el servidor de desarrollo ejecutar: 
-python manage.py runserver
-Acceso: 
-- http://127.0.0.1:8000/
-- http://127.0.0.1:8000/admin/
+Accesos: 
+API: http://127.0.0.1:8000/api/
+Panel de administración: http://127.0.0.1:8000/admin/
+Documentación Swagger: http://127.0.0.1:8000/api/docs/ 

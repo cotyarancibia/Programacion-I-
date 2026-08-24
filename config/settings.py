@@ -10,22 +10,35 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
+import os
 from pathlib import Path
+
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+load_dotenv(BASE_DIR / '.env')
+
+
+def env_bool(name, default=False):
+    return os.environ.get(name, str(default)).lower() in {'1', 'true', 'yes', 'on'}
+
+
+def env_list(name, default=''):
+    value = os.environ.get(name, default)
+    return [item.strip() for item in value.split(',') if item.strip()]
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-%w207j(ur$1aopv1xj^%&dncn5xi0=g57z7z&4p*@e@vi9y7c4'
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env_bool('DEBUG', True)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = env_list('ALLOWED_HOSTS')
 
 
 # Application definition
@@ -40,6 +53,7 @@ INSTALLED_APPS = [
     
     
     'rest_framework',
+    'django_filters',
     'corsheaders',
     'drf_spectacular',
     'base',
@@ -81,8 +95,12 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('DB_NAME', 'programacion1_db'),
+        'USER': os.environ.get('DB_USER', 'postgres_django_user'),
+        'PASSWORD': os.environ.get('DB_PASSWORD', ''),
+        'HOST': os.environ.get('DB_HOST', 'localhost'),
+        'PORT': os.environ.get('DB_PORT', '5432'),
     }
 }
 
@@ -126,3 +144,17 @@ STATIC_URL = 'static/'
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
 ]
+AUTH_USER_MODEL = 'base.User'
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+    'DEFAULT_FILTER_BACKENDS': [
+        'django_filters.rest_framework.DjangoFilterBackend',
+        'rest_framework.filters.SearchFilter',
+        'rest_framework.filters.OrderingFilter',
+    ],
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 20,
+}
