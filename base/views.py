@@ -1,7 +1,7 @@
 from rest_framework import permissions, viewsets
 from .models import User, Mascota, Solicitud
 from .serializers import UserSerializer, MascotaSerializer, SolicitudSerializer
-
+from users.permissions import IsAdminOrVendedor
 
 class IsOwnerOrAdminOrReadOnly(permissions.BasePermission):
     def has_object_permission(self, request, view, obj):
@@ -29,7 +29,7 @@ class UserViewSet(viewsets.ModelViewSet):
 class MascotaViewSet(viewsets.ModelViewSet):
     queryset = Mascota.objects.all()
     serializer_class = MascotaSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsOwnerOrAdminOrReadOnly]
+    permission_classes = [IsAdminOrVendedor]
     filterset_fields = ['estado', 'especie', 'publicado_por']
     search_fields = ['nombre', 'especie', 'raza']
 

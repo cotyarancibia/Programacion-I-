@@ -5,6 +5,17 @@ from django.db import models
 
 
 class User(AbstractUser):
+    class Role(models.TextChoices):
+        ADMIN = 'ADMIN', 'Admin'
+        CLIENTE = 'CLIENTE', 'Cliente'
+        VENDEDOR = 'VENDEDOR', 'Vendedor'
+
+    role = models.CharField(
+        max_length=20,
+        choices=Role.choices,
+        default=Role.CLIENTE
+    )
+
     telefono = models.CharField(max_length=20, blank=True, null=True)
     direccion = models.CharField(max_length=150, blank=True, null=True)
 
