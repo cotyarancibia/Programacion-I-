@@ -48,3 +48,29 @@ python manage.py runserver
 Acceso: 
 - http://127.0.0.1:8000/
 - http://127.0.0.1:8000/admin/
+
+## Frontend - React
+
+A partir del Trabajo Práctico N°5 se incorpora el frontend de la aplicación utilizando React con Vite.
+
+El frontend se encuentra en el directorio `frontend/` dentro del mismo repositorio que el backend y se ejecuta en el puerto 3000.
+
+Para iniciar el servidor de desarrollo:
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Acceso:
+
+- http://localhost:3000/
+
+## Diseño inicial
+
+Se realizó un bosquejo de la pantalla principal (Home) de la aplicación de adopción de mascotas como referencia para el desarrollo del frontend.
+
+El diseño contempla la navegación principal, búsqueda y filtrado de mascotas, mascotas disponibles para adopción, información sobre el proceso de adopción y otras secciones informativas.
+
+![Bosquejo de la Home](docs/bosquejo-home.png)
